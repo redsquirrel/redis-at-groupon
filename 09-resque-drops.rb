@@ -14,7 +14,9 @@ queue.lpush("queue:urgent", payload)
 
 # inside Resque::Worker#work
 payload = queue.rpoplpush(
-  "queue:urgent", "queue:urgent:preparing")
+  "queue:urgent", "backup-queue:urgent")
 # time passes, stuff happens
-queue.lrem("queue:urgent:preparing", 1, payload)
+queue.lrem("backup-queue:urgent", 1, payload)
 job.perform
+
+# Looking for feedback on: https://github.com/redsquirrel/resque

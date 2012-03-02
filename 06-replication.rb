@@ -7,3 +7,4 @@ slave.slaveof("localhost", 6379)
 
 master.set("Hello", "World!")
 p slave.get("Hello")
+# nil OR "World!"

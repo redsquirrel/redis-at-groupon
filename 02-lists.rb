@@ -8,3 +8,4 @@ redis.rpop("daves")
 redis.rpoplpush("daves", "davids")
 redis.lpush("davids", "hansson")
 p redis.lrange("davids", 0, -1)
+# ["hansson", "chelimsky"]
